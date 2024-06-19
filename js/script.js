@@ -108,11 +108,14 @@ const showScore = () => {
 const showSuggestion = (score) => {
   if (score === 10) {
     document.querySelector(".trophy").style.display = "flex";
-    return "You nailed it! Perfect score!";
+    playSound();
+    return "Congratulations! You are a Mastermind! Keep it up!";
   } else if (score >= 7) {
+
     document.querySelector(".trophy").style.display = "none";
     return "Great job! You're doing really well!";
   } else if (score >= 5) {
+
     document.querySelector(".trophy").style.display = "none";
     return "Good effort! You're getting there!";
   } else {
@@ -120,7 +123,11 @@ const showSuggestion = (score) => {
     return "Keep practicing! You'll improve with more practice!";
   }
 };
-
+// play the win sound
+const playSound= ()=>{
+  let audio = new Audio('./data/winner.mp3');
+  audio.play();
+}
 // Function to Show Alert when user submit the question
 const showAlert = (msg) => {
   alert.style.display = "block";
