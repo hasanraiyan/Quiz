@@ -155,9 +155,10 @@ const showTimer = () => {
       );
 
       if (confirmUser) {
-        timeLeft = 10;
+        reset();
         startQuiz();
       } else {
+        reset();
         home();
       }
 
@@ -167,7 +168,15 @@ const showTimer = () => {
 
   timerID = setInterval(countDown, 1000);
 };
-
+// reset the game variable 
+const reset = ()=>{
+  currentQuestion = 0;
+  score = 0;
+  quizOver = false;
+  timeLeft = 10;
+  timerID = null;
+  question = 10;
+}
 // Function to stop timer
 const stopTimer = () => {
   clearInterval(timerID);
@@ -228,9 +237,7 @@ playAgainBtn.addEventListener("click", () => {
   page2.style.display = "flex";
   if (quizOver) {
     scoreCard.textContent = "";
-    currentQuestion = 0;
-    quizOver = false;
-    score = 0;
+    reset();
     startQuiz();
   }
 });
