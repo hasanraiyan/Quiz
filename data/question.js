@@ -164,7 +164,7 @@ const quiz =[{
 {
     question: "What gas do plants absorb from the atmosphere?",
     choices: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-    correctAnswer: 0
+    correctAnswer: 2
 },
 {
     question: "What planet is closest to the Sun?",
@@ -184,7 +184,7 @@ const quiz =[{
 {
     question: "What is the main gas found in the air we breathe?",
     choices: ["Oxygen", "Hydrogen", "Carbon Dioxide", "Nitrogen"],
-    correctAnswer: 3
+    correctAnswer: 0
 },
 {
     question: "How many legs does a spider have?",
