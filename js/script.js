@@ -109,6 +109,7 @@ const showSuggestion = (score) => {
   if (score === 10) {
     document.querySelector(".trophy").style.display = "flex";
     playSound();
+    winGame();
     return "Congratulations! You are a Mastermind! Keep it up!";
   } else if (score >= 7) {
     document.querySelector(".trophy").style.display = "none";
