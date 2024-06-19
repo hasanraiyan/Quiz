@@ -74,7 +74,7 @@
   color: aliceblue;
   top: 30px;
   right: 30px;
-  animation: pulse 1s ease-in-out infinite;
+  animation: fade-in 1s ease-in-out infinite;
   display: none;
 }
 
