@@ -15,7 +15,7 @@ const page3 = document.querySelector(".page-3");
 let currentQuestion = 0;
 let score = 0;
 let quizOver = false;
-let timeLeft = 15;
+let timeLeft = 10;
 let timerID = null;
 let question = 10;
 
@@ -153,7 +153,7 @@ const showTimer = () => {
       );
 
       if (confirmUser) {
-        timeLeft = 15;
+        timeLeft = 10;
         startQuiz();
       } else {
         home();
@@ -186,7 +186,7 @@ const shuffleQuestions = () => {
 
 // Function to start Quiz
 const startQuiz = () => {
-  timeLeft = 15;
+  timeLeft = 10;
   timer.style.display = "flex";
   shuffleQuestions();
 };
