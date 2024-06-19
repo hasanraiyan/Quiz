@@ -2,6 +2,7 @@ const pages = document.querySelectorAll(".page");
 const questionBox = document.querySelector(".question");
 const choicesBox = document.querySelector(".option-container");
 const nextBtn = document.querySelector(".nextBtn");
+const playAgainBtn = document.querySelector(".play-again");
 const scoreCard = document.querySelector(".scoreCard");
 const alert = document.querySelector(".alert");
 const startBtn = document.querySelector(".start-btn");
@@ -85,7 +86,7 @@ const checkAnswer = () => {
   }
   timeLeft = 15;
   currentQuestion++;
-  if (currentQuestion < 10) {
+  if (currentQuestion < 2) {
     showQuestions();
   } else {
     stopTimer();
@@ -151,7 +152,7 @@ const stopTimer = () => {
 // Function to shuffle question
 const shuffleQuestions = () => {
   console.log("shuffleQuestions called");
-  for (i = quiz.length - 1; i > 0; i--) {
+  for (let i = quiz.length - 1; i > 0; i--) {
     // generate random number
     const j = Math.floor(Math.random() * (i + 1));
     // reverse the question
@@ -196,14 +197,16 @@ nextBtn.addEventListener("click", () => {
     showAlert("Select your answer");
     return;
   }
+  checkAnswer();
+});
+playAgainBtn.addEventListener("click", () => {
   if (quizOver) {
-    nextBtn.textContent = "Next";
+    home();
+    console.log("call");
     scoreCard.textContent = "";
     currentQuestion = 0;
     quizOver = false;
     score = 0;
     startQuiz();
-  } else {
-    checkAnswer();
   }
 });
