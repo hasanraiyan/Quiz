@@ -151,4 +151,3 @@ const quiz = [
     }
 ];
 
-console.log(quiz)

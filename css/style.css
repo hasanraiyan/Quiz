@@ -131,7 +131,7 @@
 .page-2 {
   margin: auto;
   display: none;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .page-2 .container {
@@ -206,9 +206,10 @@
   justify-content: center;
   img {
     width: 200px;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
+    animation: fade-in 0.5s ease forwards;
   }
+  animation: fade-in 0.5s ease forwards;
 }
 .page-3 .container .trophy img {
   width: 200px;

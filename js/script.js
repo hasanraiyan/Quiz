@@ -21,10 +21,8 @@ let question = 10;
 
 // Function to show question
 const showQuestions = () => {
-  
   const questionDetails = quiz[currentQuestion];
-
-  questionBox.innerHTML = questionDetails.question;
+  questionBox.innerHTML = `${currentQuestion + 1}. ${questionDetails.question}`;
 
   // Clear previous choices if any
   choicesBox.innerHTML = "";
@@ -55,7 +53,6 @@ const showQuestions = () => {
 
 // function to check answer
 const checkAnswer = () => {
- 
   const selectedChoice = document.querySelector(".choice.selected");
   // handle the empty selection error
   if (!selectedChoice) {
@@ -100,10 +97,28 @@ const showScore = () => {
   page1.style.display = "none";
   page3.style.display = "flex";
   scoreCard.textContent = `Your Final Score is ${score} out of 10`;
+  alert.style.backgroundColor = "green";
   showAlert("You have completed this quiz!");
-  nextBtn.textContent = "Play Again";
+  let suggestion = showSuggestion(score);
+  document.querySelector(".suggest").innerHTML = suggestion;
   quizOver = true;
   timer.style.display = "none";
+};
+// Function to calculate suggestion based on score
+const showSuggestion = (score) => {
+  if (score === 10) {
+    document.querySelector(".trophy").style.display = "flex";
+    return "You nailed it! Perfect score!";
+  } else if (score >= 7) {
+    document.querySelector(".trophy").style.display = "none";
+    return "Great job! You're doing really well!";
+  } else if (score >= 5) {
+    document.querySelector(".trophy").style.display = "none";
+    return "Good effort! You're getting there!";
+  } else {
+    document.querySelector(".trophy").style.display = "none";
+    return "Keep practicing! You'll improve with more practice!";
+  }
 };
 
 // Function to Show Alert when user submit the question
@@ -146,13 +161,11 @@ const showTimer = () => {
 
 // Function to stop timer
 const stopTimer = () => {
- 
   clearInterval(timerID);
 };
 
 // Function to shuffle question
 const shuffleQuestions = () => {
-
   for (let i = quiz.length - 1; i > 0; i--) {
     // generate random number
     const j = Math.floor(Math.random() * (i + 1));
@@ -166,7 +179,6 @@ const shuffleQuestions = () => {
 
 // Function to start Quiz
 const startQuiz = () => {
-
   timeLeft = 15;
   timer.style.display = "flex";
   shuffleQuestions();
@@ -206,7 +218,6 @@ playAgainBtn.addEventListener("click", () => {
   });
   page2.style.display = "flex";
   if (quizOver) {
-
     scoreCard.textContent = "";
     currentQuestion = 0;
     quizOver = false;
