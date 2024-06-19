@@ -84,7 +84,7 @@ const checkAnswer = () => {
       );
     }
   }
-  timeLeft = 15;
+  timeLeft = 10;
   currentQuestion++;
   if (currentQuestion < 2) {
     showQuestions();
@@ -147,6 +147,7 @@ const showTimer = () => {
 // Function to stop timer
 const stopTimer = () => {
   console.log("stopTimer called");
+  clearInterval(timerID);
 };
 
 // Function to shuffle question
@@ -200,8 +201,11 @@ nextBtn.addEventListener("click", () => {
   checkAnswer();
 });
 playAgainBtn.addEventListener("click", () => {
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+  page2.style.display = "flex";
   if (quizOver) {
-    home();
     console.log("call");
     scoreCard.textContent = "";
     currentQuestion = 0;
