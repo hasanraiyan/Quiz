@@ -21,7 +21,7 @@ let question = 10;
 
 // Function to show question
 const showQuestions = () => {
-  console.log("showQuestions called");
+  
   const questionDetails = quiz[currentQuestion];
 
   questionBox.innerHTML = questionDetails.question;
@@ -55,7 +55,7 @@ const showQuestions = () => {
 
 // function to check answer
 const checkAnswer = () => {
-  console.log("checkAnswer called");
+ 
   const selectedChoice = document.querySelector(".choice.selected");
   // handle the empty selection error
   if (!selectedChoice) {
@@ -146,13 +146,13 @@ const showTimer = () => {
 
 // Function to stop timer
 const stopTimer = () => {
-  console.log("stopTimer called");
+ 
   clearInterval(timerID);
 };
 
 // Function to shuffle question
 const shuffleQuestions = () => {
-  console.log("shuffleQuestions called");
+
   for (let i = quiz.length - 1; i > 0; i--) {
     // generate random number
     const j = Math.floor(Math.random() * (i + 1));
@@ -166,7 +166,7 @@ const shuffleQuestions = () => {
 
 // Function to start Quiz
 const startQuiz = () => {
-  console.log("startQuiz called");
+
   timeLeft = 15;
   timer.style.display = "flex";
   shuffleQuestions();
@@ -206,7 +206,7 @@ playAgainBtn.addEventListener("click", () => {
   });
   page2.style.display = "flex";
   if (quizOver) {
-    console.log("call");
+
     scoreCard.textContent = "";
     currentQuestion = 0;
     quizOver = false;
