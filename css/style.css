@@ -159,6 +159,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: fade-in 0.5s ease forwards;
 }
 
 .page-2 .option-container .choice {
@@ -171,6 +172,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 5px;
+  animation: fade-in 0.5s ease forwards;
   background-color: white;
 }
 
