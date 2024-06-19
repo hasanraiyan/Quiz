@@ -86,7 +86,7 @@ const checkAnswer = () => {
   }
   timeLeft = 10;
   currentQuestion++;
-  if (currentQuestion < 2) {
+  if (currentQuestion < 10) {
     showQuestions();
   } else {
     stopTimer();
