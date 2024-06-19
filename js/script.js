@@ -1,3 +1,6 @@
+//    Created on: 19-06-2024
+//    By: Raiyan Hasan
+
 const pages = document.querySelectorAll(".page");
 const questionBox = document.querySelector(".question");
 const choicesBox = document.querySelector(".option-container");
