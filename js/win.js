@@ -30,4 +30,3 @@ function winGame() {
     );
   }, 250);
 }
-
