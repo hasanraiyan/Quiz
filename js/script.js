@@ -14,11 +14,16 @@ const page1 = document.querySelector(".page-1");
 const page2 = document.querySelector(".page-2");
 const page3 = document.querySelector(".page-3");
 
+// audio files
+const correctAudio = new Audio("./data/correct.mp3");
+const wrongAudio = new Audio("./data/wrong.mp3");
+const winAudio = new Audio("./data/winner.mp3");
+
 // Game initial state
 let currentQuestion = 0;
 let score = 0;
 let quizOver = false;
-let timeLeft = 10;
+let timeLeft = 25;
 let timerID = null;
 let question = 10;
 
@@ -59,6 +64,7 @@ const checkAnswer = () => {
   const selectedChoice = document.querySelector(".choice.selected");
   // handle the empty selection error
   if (!selectedChoice) {
+    wrongAudio.play();
     alert.style.backgroundColor = "red";
     showAlert("Please select an answer.");
     return;
@@ -71,11 +77,13 @@ const checkAnswer = () => {
       quiz[currentQuestion].choices[quiz[currentQuestion].correctAnswer]
     ) {
       // alert correct answer
+      correctAudio.play();
       alert.style.backgroundColor = "green";
       showAlert("Correct Answer!");
       score++;
     } else {
       // alert("Wrong answer");
+      wrongAudio.play();
       alert.style.backgroundColor = "red";
       showAlert(
         `Wrong Answer! ${
@@ -84,7 +92,7 @@ const checkAnswer = () => {
       );
     }
   }
-  timeLeft = 10;
+  timeLeft = 15;
   currentQuestion++;
   if (currentQuestion < 10) {
     showQuestions();
@@ -111,7 +119,7 @@ const showScore = () => {
 const showSuggestion = (score) => {
   if (score === 10) {
     document.querySelector(".trophy").style.display = "flex";
-    playSound();
+    winAudio.play();
     winGame();
     return "Congratulations! You are a Mastermind! Keep it up!";
   } else if (score >= 7) {
@@ -125,11 +133,7 @@ const showSuggestion = (score) => {
     return "Keep practicing! You'll improve with more practice!";
   }
 };
-// play the win sound
-const playSound = () => {
-  let audio = new Audio("./data/winner.mp3");
-  audio.play();
-};
+
 // Function to Show Alert when user submit the question
 const showAlert = (msg) => {
   alert.style.display = "block";
@@ -168,15 +172,15 @@ const showTimer = () => {
 
   timerID = setInterval(countDown, 1000);
 };
-// reset the game variable 
-const reset = ()=>{
+// reset the game variable
+const reset = () => {
   currentQuestion = 0;
   score = 0;
   quizOver = false;
-  timeLeft = 10;
+  timeLeft = 15;
   timerID = null;
   question = 10;
-}
+};
 // Function to stop timer
 const stopTimer = () => {
   clearInterval(timerID);
@@ -197,7 +201,7 @@ const shuffleQuestions = () => {
 
 // Function to start Quiz
 const startQuiz = () => {
-  timeLeft = 10;
+  reset();
   timer.style.display = "flex";
   shuffleQuestions();
 };
